@@ -56,7 +56,6 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
-        //他是事实上是
 
         yearEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -143,7 +142,7 @@ public class MainActivity extends ActionBarActivity {
                 qihuajianhua = "木齐金化";
                 wuyunzhubing = "脾土受邪，病肠鸣、飨泄、食少、腹满、体重、烦冤";
                 break;
-            case "葵":
+            case "癸":
                 keyun = "阴火运";
                 qihuajianhua = "水来兼化";
                 wuyunzhubing = "心肺受邪，病谵语狂乱、胸背痛";
@@ -316,6 +315,7 @@ public class MainActivity extends ActionBarActivity {
         return shangxiaxianglin;
     }
 
+    /*六气主病*/
     private String liuqizhubing(String earthlyBranch) {
         String liuqizhubing = null;
 
