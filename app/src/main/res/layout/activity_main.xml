@@ -50,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/space_tv"
         android:text="@string/hello_world"
-        android:textSize="17dp"/>
+        android:textSize="17dp"
+        android:scrollbars="vertical"/>
 
 
 

@@ -3,6 +3,7 @@ package cheng.yunqixueshuo;
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -36,6 +37,8 @@ public class MainActivity extends ActionBarActivity {
 
         // 软键盘事件监听
         final InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        outTextView.setMovementMethod(ScrollingMovementMethod.getInstance()); // 滚动效果
 
         Button okBtn = (Button) findViewById(R.id.ok_btn);
         okBtn.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +89,7 @@ public class MainActivity extends ActionBarActivity {
         String text; // 返回值
         String keyun; // 客运
         String qihuajianhua; // 五运齐化兼化
+        String wuyunzhubing; // 五运主病
 
 
         int year = Integer.parseInt(str);
@@ -97,53 +101,65 @@ public class MainActivity extends ActionBarActivity {
             case "甲":
                 keyun = "阳土运";
                 qihuajianhua = "土齐木化";
+                wuyunzhubing = "肾水受邪，病四肢厥冷、腹中痛、体重、烦冤、意不乐";
                 break;
             case "乙":
                 keyun = "阴金运";
                 qihuajianhua = "火来兼化";
+                wuyunzhubing = "肝木受邪，病耳聋无闻、胁下痛、少腹痛、目眦赤痛";
                 break;
             case "丙":
                 keyun = "阳水运";
                 qihuajianhua = "水齐土化";
+                wuyunzhubing = "心火受邪，病心烦躁悸、谵语妄言、心中热痛";
                 break;
             case "丁":
                 keyun = "阴木运";
                 qihuajianhua = "金来兼化";
+                wuyunzhubing = "肝脾受邪，病善怒、颠疾、眩冒、吐甚";
                 break;
             case "戊":
                 keyun = "阳火运";
                 qihuajianhua = "火齐水化";
+                wuyunzhubing = "肺金受邪，病咳喘、气少息不足、血失而颜色悴、疟疾注下、火泻咽干中热";
                 break;
             case "己":
                 keyun = "阴土运";
                 qihuajianhua = "木来兼化";
+                wuyunzhubing = "脾胃受邪，病腹满、溏泻、肠鸣、足痿瘛痛、饮满";
                 break;
             case "庚":
                 keyun = "阳金运";
                 qihuajianhua = "金齐火化";
+                wuyunzhubing = "肝木受邪，病耳聋无闻、胁下痛、少腹痛、目眦赤痛";
                 break;
             case "辛":
                 keyun = "阴水运";
                 qihuajianhua = "土来兼化";
+                wuyunzhubing = "心火受邪，病心烦躁悸、谵语妄言、心中热痛";
                 break;
             case "壬":
                 keyun = "阳木运";
                 qihuajianhua = "木齐金化";
+                wuyunzhubing = "脾土受邪，病肠鸣、飨泄、食少、腹满、体重、烦冤";
                 break;
             case "葵":
                 keyun = "阴火运";
                 qihuajianhua = "水来兼化";
+                wuyunzhubing = "心肺受邪，病谵语狂乱、胸背痛";
                 break;
             default:
                 keyun = "";
                 qihuajianhua = "";
+                wuyunzhubing = "";
                 break;
         }
 
         text = "推演结果为：" + "\n\n" + "干支：" + heavenlyStem + earthlyBranch + "\n\n" + "客运：" + keyun
                 + "\n\n" + "客气：" + keqiGuilv(earthlyBranch) + "\n\n" + "五运齐化兼化：" + qihuajianhua
                 + "\n\n" + "六气正化对化：" + zhenghuaduihua(earthlyBranch) + "\n\n" + "上下相临:"
-                + shangxiaxianglin(heavenlyStem, earthlyBranch);
+                + shangxiaxianglin(heavenlyStem, earthlyBranch) + "\n\n" + "五运主病：" + wuyunzhubing
+                +"\n\n"+"六气主病："+liuqizhubing(earthlyBranch);
         return text;
     }
 
@@ -300,6 +316,31 @@ public class MainActivity extends ActionBarActivity {
         return shangxiaxianglin;
     }
 
+    private String liuqizhubing(String earthlyBranch) {
+        String liuqizhubing = null;
+
+        if (earthlyBranch.equals("子") || earthlyBranch.equals("午")) {
+            liuqizhubing = "少阴君火司天，火气下临病肺心；阳明燥金在泉，燥行于地病肝。" +
+                    "燥热交加，病喘咳，血上溢，血下泄，寒热，鼽塞，喷嚏，流涕，疮疡，目赤，嗌干，肿痛，心痛，胁痛。";
+        } else if (earthlyBranch.equals("丑") || earthlyBranch.equals("未")) {
+            liuqizhubing="太阴湿土司天，湿气下临病肾阴；太阳寒水在泉，寒行于地病心脾。" +
+                    "寒湿交攻，病身重，足跗肿，霍乱，痞满，腹胀，四肢厥逆拘急，脚下痛，少腹痛，腰痛难于转侧.";
+        } else if (earthlyBranch.equals("寅") || earthlyBranch.equals("申")) {
+            liuqizhubing = "少阳相火司天，火气下临病肺；厥阴风木在泉，风行于地病肝。" +
+                    "热中，咳而失血，目赤，喉痹，耳聋眩瞑，疮疡，心痛，瞤动，瘛瘲，昏冒。";
+        } else if (earthlyBranch.equals("卯") || earthlyBranch.equals("酉")) {
+            liuqizhubing = "阳明燥金司天，燥气下临病肝筋；少阴君火在泉，热行于地病肺心。" +
+                    "寒热而咳，胸郁愤满，掉摇振动，筋痿无力，烦冤抑郁不伸，两胁心中热痛，目痛眦红，小便绛色。";
+        } else if (earthlyBranch.equals("辰") || earthlyBranch.equals("戊")) {
+            liuqizhubing = "太阳寒水司天，寒气下临病心脉；太阴湿土在泉，湿行于地病脾肉。" +
+                    "寒中，终反变热，痈疽一切火郁之病，皮痹而重着，肉苛不用不仁，足痿无力，湿泻腹满身肿。";
+        } else if (earthlyBranch.equals("巳") || earthlyBranch.equals("亥")) {
+            liuqizhubing = "厥阴风木司天，风气下临病脾；少阳相火在泉，火行于地病温。" +
+                    "病耳聋，振掉，眩晕，腹满肠鸣，完谷不化之泻，体重食减，肌肉痿瘦。";
+        }
+
+        return liuqizhubing;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
