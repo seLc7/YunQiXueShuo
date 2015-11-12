@@ -154,6 +154,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
         }
 
+
         text = "推演结果为：" + "\n\n" + "干支：" + heavenlyStem + earthlyBranch + "\n\n" + "客运：" + keyun
                 + "\n\n" + "客气：" + keqiGuilv(earthlyBranch) + "\n\n" + "五运齐化兼化：" + qihuajianhua
                 + "\n\n" + "六气正化对化：" + zhenghuaduihua(earthlyBranch) + "\n\n" + "上下相临:"
@@ -242,6 +243,7 @@ public class MainActivity extends ActionBarActivity {
             keyun = "火";
         }
 
+
         // 客气
         if (earthlyBranch.equals("子") || earthlyBranch.equals("午")) {
             keqi = "火";
@@ -251,7 +253,7 @@ public class MainActivity extends ActionBarActivity {
             keqi = "火";
         } else if (earthlyBranch.equals("卯") || earthlyBranch.equals("酉")) {
             keqi = "金";
-        } else if (earthlyBranch.equals("辰") || earthlyBranch.equals("戊")) {
+        } else if (earthlyBranch.equals("辰") || earthlyBranch.equals("戌")) {
             keqi = "水";
         } else if (earthlyBranch.equals("巳") || earthlyBranch.equals("亥")) {
             keqi = "木";
@@ -331,7 +333,7 @@ public class MainActivity extends ActionBarActivity {
         } else if (earthlyBranch.equals("卯") || earthlyBranch.equals("酉")) {
             liuqizhubing = "阳明燥金司天，燥气下临病肝筋；少阴君火在泉，热行于地病肺心。" +
                     "寒热而咳，胸郁愤满，掉摇振动，筋痿无力，烦冤抑郁不伸，两胁心中热痛，目痛眦红，小便绛色。";
-        } else if (earthlyBranch.equals("辰") || earthlyBranch.equals("戊")) {
+        } else if (earthlyBranch.equals("辰") || earthlyBranch.equals("戌")) {
             liuqizhubing = "太阳寒水司天，寒气下临病心脉；太阴湿土在泉，湿行于地病脾肉。" +
                     "寒中，终反变热，痈疽一切火郁之病，皮痹而重着，肉苛不用不仁，足痿无力，湿泻腹满身肿。";
         } else if (earthlyBranch.equals("巳") || earthlyBranch.equals("亥")) {
